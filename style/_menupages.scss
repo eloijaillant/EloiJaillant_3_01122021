@@ -1,3 +1,14 @@
+@keyframes itemAppear {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .header {
   &--withBackArrow {
     position: relative;
@@ -116,6 +127,9 @@
   cursor: pointer;
   max-width: 100%;
   overflow: hidden;
+  animation: itemAppear .6s;
+  animation-fill-mode: both;
+  transform: scale(0);
 
   &__header {
     white-space: nowrap;
@@ -164,9 +178,9 @@
     height: 1.6rem;
     width: 1.6rem;
     background-color: white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 100px;
     transform: rotate(180deg);
     transition-duration: 0.5s;
@@ -192,4 +206,85 @@
 .commandBtn {
   @include button;
   cursor: pointer;
+}
+
+.card {
+  &__like1 {
+    background-color: #f6f6f6;
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    &:hover {
+      z-index: 0;
+      opacity: 0;
+      transition-duration: .50s;
+    }
+    &:focus {
+      opacity: 0;
+    }
+  }
+
+  &__like1--whiteBg {
+    background-color: white;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  
+  &:hover {
+    z-index: 0;
+    opacity: 0;
+    transition-duration: .50s;
+  }
+  &:focus {
+    opacity: 0;
+  }
+
+  }
+
+  &__like2 {
+    background: -webkit-linear-gradient(0deg, $color-primary 0%,$color-secondary 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: #f6f6f6;
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &:hover {
+      z-index: 1;
+    }
+  }
+
+  &__like2--whiteBg {
+    background: -webkit-linear-gradient(0deg, $color-primary 0%,$color-secondary 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: white;
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    &:hover {
+      z-index: 1;
+    }
+  }
+}
+
+@for $i from 0 to 10 {
+  .delay-#{$i} {
+    animation-delay:  #{$i/10}s;
+  }
 }
