@@ -92,14 +92,6 @@
   }
 }
 
-.submenus {
-  @media (min-width:64rem) {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    column-gap: 1rem;
-  }
-}
-
 .submenu {
   max-width: 100%;
   overflow: hidden;
