@@ -9,6 +9,12 @@
   }
 }
 
+@for $i from 0 to 10 {
+  .delay-#{$i} {
+    animation-delay:  #{$i/10}s;
+  }
+}
+
 .header {
   &--withBackArrow {
     position: relative;
@@ -272,11 +278,5 @@
     &:hover {
       z-index: 1;
     }
-  }
-}
-
-@for $i from 0 to 10 {
-  .delay-#{$i} {
-    animation-delay:  #{$i/10}s;
   }
 }
